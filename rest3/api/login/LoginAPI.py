@@ -16,7 +16,7 @@ class LoginAPI(APIView):
         try:
             user = User.objects.get(username=username)
         except:
-            return Response({"Error": "usuario no valido."}, status=400)
+            return Response({"Error": "usuario no válido."}, status=400)
 
         password_valido = check_password(password, user.password)
 
@@ -25,7 +25,7 @@ class LoginAPI(APIView):
 
             return Response({"Token": token.key}, status=200)
         else:
-            return Response({"Error": "contraseña no valida."}, status=400)
+            return Response({"Error": "contraseña no válida."}, status=400)
 
 
 # API QUE ELIMINA EL TOKEN DE LA CUENTA.
