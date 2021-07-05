@@ -9,10 +9,11 @@ class libroapi(APIView):
 
     def get(self, request):
         try:
+            data = request.data
             libros = Libro.objects.all()
             serializado = LibroSerial(libros, many=True)
             libroid = Libro.id()
-            
+
             return Response(serializado.data, status=200)
         except:
             return Response(status=400)
